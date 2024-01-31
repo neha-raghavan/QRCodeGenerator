@@ -1,2 +1,14 @@
-﻿
-<h2>Index page</h2>
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@if (!string.IsNullOrEmpty(ViewBag.QRCodeImage))
+{
+    <img src="data:image/png;base64,@ViewBag.QRCodeImage" alt="QR Code" />
+}
+else
+{
+    <p>QR Code not available</p>
+}

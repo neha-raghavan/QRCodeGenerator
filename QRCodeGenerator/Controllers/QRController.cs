@@ -41,7 +41,9 @@ namespace QRCodeGenerater.Controllers
                 qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                 byte[] qrCodeBytes = stream.ToArray();
 
-                return File(qrCodeBytes, "image/jpg");
+                ViewBag.QRCodeImage = Convert.ToBase64String(qrCodeBytes);
+
+                //return File(qrCodeBytes, "image/jpg");
             }
             return View();
         }
